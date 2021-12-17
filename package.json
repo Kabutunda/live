@@ -1,0 +1,21 @@
+{
+  "name": "wgtvlive",
+  "version": "1.0.0",
+  "description": "",
+  "main": "backend/api-server/data/db.json",
+  "engines": {
+    "node": "14.17.5"
+  },
+  "scripts": {
+    "start": "node backend/rtmp-server/src/index.js",
+    "develop": "concurrently \"cd backend/api-server && npm start\" \"cd backend/rtmp-server && npm start\" \"cd frontend/client-server && npm start\"",
+    "install": "cd backend/api-server && cd ../backend/rtmp-server && npm i && cd ../../frontend/client-server && npm i",
+    "build": "cd frontend/client-server && npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^5.1.0"
+  }
+}
