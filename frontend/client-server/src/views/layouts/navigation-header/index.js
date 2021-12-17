@@ -1,6 +1,6 @@
 import React from 'react';
 
-import GoogleAuth from '../../components/google-auth'
+// import GoogleAuth from '../../components/google-auth'
 
 const NavigationHeader = () => <div></div>
   // <div className="top-bar shadow">

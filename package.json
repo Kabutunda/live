@@ -1,21 +1,23 @@
 {
-  "name": "wgtvlive",
+  "name": "live",
   "version": "1.0.0",
-  "description": "",
-  "main": "backend/api-server/data/db.json",
-  "engines": {
-    "node": "14.17.5"
-  },
+  "description": "Live Streaming App.",
+  "main": "index.js",
   "scripts": {
-    "start": "backend/api-server/data/db.json",
-    "develop": "concurrently \"cd backend/api-server && npm start\" \"cd backend/rtmp-server && npm start\" \"cd frontend/client-server && npm start\"",
-    "install": "cd backend/api-server && npm i && cd ../rtmp-server && npm i && cd ../../frontend/client-server && npm i",
-    "build": "cd frontend/client-server && npm run build"
+    "start": "node backend/rtmp-server/src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client": "npm start --prefix frontend/client-server",
+    "stream": "npm start --prefix backend/api-server",
+    "dev": "concurrently \"npm start\" \"npm run stream\" \"npm run client\""
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kabutunda/live.git"
+  },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "concurrently": "^5.1.0"
-  }
+  "bugs": {
+    "url": "https://github.com/Kabutunda/live/issues"
+  },
+  "homepage": "https://github.com/Kabutunda/live#readme"
 }

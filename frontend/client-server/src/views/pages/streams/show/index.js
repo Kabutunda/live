@@ -1,6 +1,5 @@
 import React, { createRef, Component } from 'react';
 import flv from 'flv.js';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import BaseGrid from '../../../layouts/base-grid';
