@@ -7,7 +7,7 @@
     "node": "14.17.5"
   },
   "scripts": {
-    "start": "node backend/rtmp-server/src/index.js",
+    "start": "json-server -p 3005 -w data/db.json",
     "develop": "concurrently \"cd backend/api-server && npm start\" \"cd backend/rtmp-server && npm start\" \"cd frontend/client-server && npm start\"",
     "install": "cd backend/api-server && npm i && cd ../rtmp-server && npm i && cd ../../frontend/client-server && npm i",
     "build": "cd frontend/client-server && npm run build"
