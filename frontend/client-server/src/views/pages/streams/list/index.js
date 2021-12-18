@@ -31,23 +31,10 @@ const StreamList = class extends Component {
           { streams.map(function iterateStreams(item) {
               const { id, title, description, userId } = item;
               return (
-                <div className="radius bordered shadow card" key={ id }>
+                <div className="radius bordered shadow card">
                   <div className="card-section">
-                    <Link to={ `/streams/${id}` } className="dark-link">
-                      <h4>{ title }</h4>
-                      <p>{ description }</p>
-                    </Link>
-                    <div className="button-group">
-                      <Link
-                        type="button" to={ `/streams/${id}` } 
-                        className="secondary radius bordered shadow button">Watch Live</Link>
-                      { (hasSignedInState && currentUserId === userId) ? <Fragment>
-                          <Link type="button" to={ `/streams/${id}/edit` } 
-                            className="success radius bordered shadow button">Edit</Link>
-                          <Link type="button" to={ `/streams/${id}/delete` } 
-                            className="alert radius bordered shadow button">Delete</Link>
-                        </Fragment> : null }
-                    </div> 
+                    <h6><b><u>Default stream credentials</u></b> <br/> <b>url:</b> rtmp://localhost/live <br/> <b>Stream key:</b> 1 </h6>
+                    <Link type="button" to={ `/streams/${id}` } className="primary radius bordered shadow button">Goto live stream from here</Link>
                   </div>
                 </div>
               );

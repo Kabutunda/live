@@ -1,5 +1,11 @@
 const { NodeMediaServer } = require('node-media-server');
-require("dotenv").config();
+
+const path = require('path');
+
+const dotenv = require('dotenv');
+
+dotenv.config();
+
 const config = {
   rtmp: {
     port: process.env.PORT || 1935,
@@ -15,4 +21,9 @@ const config = {
 };
 
 const nms = new NodeMediaServer(config);
+
 nms.run();
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../.../frontend/client-server/build/index.html'));
+});
