@@ -24,6 +24,10 @@ const nms = new NodeMediaServer(config);
 
 nms.run();
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../.../frontend/client-server/build/index.html'));
-});
+//heroku setup
+if (process.env.NODE_ENV==='production') {
+  app.use(express.static('../../.../frontend/client-server/build'));
+  app.get("*", (req, res) =>{
+    res.sendFile(path.resolve(__dirname, '...','...','frontend','client-server', 'build', 'index.html'));
+  })
+}
