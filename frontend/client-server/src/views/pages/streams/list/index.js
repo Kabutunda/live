@@ -1,4 +1,4 @@
-import React, { Fragment, Component } from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -12,7 +12,7 @@ const StreamList = class extends Component {
   }
   
   render() {
-    const { streams, currentUserId, hasSignedInState } = this.props;
+    const { streams, hasSignedInState } = this.props;
     if (!streams.length) return null;
     return (
       <BaseGrid>
@@ -29,7 +29,7 @@ const StreamList = class extends Component {
         </BaseGrid.CellHeaderRight>
         <BaseGrid.CellMainContent>
           { streams.map(function iterateStreams(item) {
-              const { id, title, description, userId } = item;
+              const { id } = item;
               return (
                 <div className="radius bordered shadow card">
                   <div className="card-section">
