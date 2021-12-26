@@ -2,7 +2,7 @@
   "name": "wgtvlive",
   "version": "1.0.0",
   "description": "",
-  "main": "backend/rtmp-server/src/index.js",
+  "main": "index.js",
   "engines": {
     "node": "14.17.5"
   },
