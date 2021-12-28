@@ -1,1 +1,1 @@
-web: node backend/api-server/data/db.json
+web: node backend/rtmp-server/src/index.js
