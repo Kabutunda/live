@@ -4,9 +4,10 @@
   "description": "RTMP server (node-media-server) and API (json-server) server for live stream in react",
   "private": true,
   "scripts": {
-    "start": "node server.js",
-    "serve": "json-server -p 3005 -w db.json",
-    "dev": "concurrently \"npm start\" \"npm run serve\" \"cd client && npm start\"",
+    "serve1": "node server.js",
+    "serve2": "json-server -p 3005 -w db.json",
+    "start": "concurrently \"npm runserve1\" \"npm run serve2\"",
+    "dev": "concurrently \"npm start\" \"cd client && npm start\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client"
   },
   "dependencies": {
