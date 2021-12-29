@@ -1,19 +1,17 @@
 {
-  "name": "wgtvlive",
+  "name": "rtmp-server",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "engines": {
-    "node": "14.17.5"
-  },
+  "description": "RTMP server (node-media-server) and API (json-server) server for live stream in react",
+  "private": true,
   "scripts": {
-    "start": "node backend/rtmp-server/src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "client": "npm start --prefix frontend/client-server",
-    "stream": "npm start --prefix backend/api-server",
-    "dev": "concurrently \"npm start\" \"npm run stream\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend/client-server"
+    "start": "node server.js",
+    "serve": "json-server -p 3005 -w db.json",
+    "dev": "concurrently \"npm start\" \"npm run serve\" \"cd client && npm start\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client"
   },
-  "author": "",
-  "license": "ISC"
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "node-media-server": "^1.4.12",
+    "json-server": "^0.14.2"
+  }
 }

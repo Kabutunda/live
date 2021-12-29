@@ -1,1 +1,1 @@
-web: node backend/rtmp-server/src/index.js
+web: node server.js
