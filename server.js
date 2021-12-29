@@ -1,7 +1,5 @@
 const { NodeMediaServer } = require('node-media-server');
-
 const path = require('path');
-
 const dotenv = require('dotenv');
 
 dotenv.config();
