@@ -25,7 +25,7 @@ const StreamShow = class extends Component {
     if (this.player || !stream) return;
     this.player = flv.createPlayer({
       type: 'flv',
-      url: `http://localhost:8000/live/1.flv`,
+      url: `http://live/1.flv`,
     });
     this.player.attachMediaElement(this.videoRef.current);
     this.player.load();
