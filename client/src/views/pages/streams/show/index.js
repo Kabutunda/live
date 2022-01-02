@@ -1,7 +1,6 @@
 import React, { createRef, Component } from 'react';
 import flv from 'flv.js';
 import { connect } from 'react-redux';
-
 import BaseGrid from '../../../layouts/base-grid';
 import { handleFetchStream } from '../../../../store/actions';
 
@@ -12,8 +11,8 @@ const StreamShow = class extends Component {
   }
 
   componentDidMount() {
-    const { handleFetchStream, match } = this.props;
-    handleFetchStream(match.params.id);
+    const { handleFetchStream} = this.props;
+    handleFetchStream(1);
     this.buildPlayer();
   }
 
@@ -22,11 +21,11 @@ const StreamShow = class extends Component {
   }
 
   buildPlayer = () => {
-    const { stream, match } = this.props;
+    const { stream } = this.props;
     if (this.player || !stream) return;
     this.player = flv.createPlayer({
       type: 'flv',
-      url: `http://localhost:8000/live/${match.params.id}.flv`,
+      url: `http://localhost:8000/live/1.flv`,
     });
     this.player.attachMediaElement(this.videoRef.current);
     this.player.load();
@@ -37,26 +36,14 @@ const StreamShow = class extends Component {
     if (!stream) return null;
     return (
       <BaseGrid>
-        <BaseGrid.CellHeaderLeft>
-          {/* <h3>View your Stream</h3> */}
-        </BaseGrid.CellHeaderLeft>
-        <BaseGrid.CellHeaderRight>
-          {/* <Link type="button" to="/" className="button radius bordered shadow secondary">
-            Go back to Homepage
-          </Link> */}
-        </BaseGrid.CellHeaderRight>
+        <BaseGrid.CellHeaderLeft> </BaseGrid.CellHeaderLeft>
+        <BaseGrid.CellHeaderRight> </BaseGrid.CellHeaderRight>
         <BaseGrid.CellMainContent>
-          <div className="radius bordered shadow card">
-            <div className="card-section">
-              <h4>{ stream.title }</h4>
-              <p>{ stream.description }</p>
-              <video 
-                ref={ this.videoRef } 
-                className="video-container radius bordered shadow"
-                controls
-              />
-            </div>
-          </div>
+          <video 
+            ref={ this.videoRef } 
+            className="video-container radius bordered shadow"
+            controls
+          />
         </BaseGrid.CellMainContent>
       </BaseGrid>
     );
@@ -70,8 +57,6 @@ StreamShow.defaultProps = {
 };
 
 export default connect(
-  ({ streams  }, { match }) => ({ 
-    stream: streams[match.params.id],
-  }),
+  ({ streams  }) => ({ stream: streams }),
   { handleFetchStream },
 )(StreamShow);

@@ -1,37 +1,18 @@
 import uuid from 'uuid';
-
 import StreamList from '../pages/streams/list';
-import StreamCreate from '../pages/streams/create';
-import StreamEdit from '../pages/streams/edit';
-import StreamDelete from '../pages/streams/delete';
 import StreamShow from '../pages/streams/show';
 
 const routesData = [
   {
-    path: '/',
+    path: '/streams/1',
     page: StreamList,
     ownProps: {},
   },
   {
-    path: '/streams/create',
-    page: StreamCreate,
-    ownProps: {},
-  },
-  {
-    path: '/streams/:id(\\d+)',
+    path: '/',
     page: StreamShow,
     ownProps: {},
-  },
-  {
-    path: '/streams/:id(\\d+)/edit/',
-    page: StreamEdit,
-    ownProps: {},
-  },
-  {
-    path: '/streams/:id(\\d+)/delete',
-    page: StreamDelete,
-    ownProps: {},
-  },
+  }
 ];
 
 routesData.forEach(function iterateRoutesData(item) {
