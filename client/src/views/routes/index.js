@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-
 import routesData from './routesData';
 
 const Routes = () => 
@@ -8,9 +7,9 @@ const Routes = () =>
     <div className="cell">
       <Switch>
         { routesData.map(function iterateRoutesData(item) {
-            const { uuid, path, page: DynRoutedPage, ownProps = {} } = item;
+            const { path, page: DynRoutedPage, ownProps = {} } = item;
             return (
-              <Route exact key={ uuid } path={ path } 
+              <Route exact path={ path } 
                 render={ (props = {}) => <DynRoutedPage { ...props } { ...ownProps } /> } 
               />
             );
