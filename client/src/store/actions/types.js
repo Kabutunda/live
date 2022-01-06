@@ -1,3 +1,2 @@
 /* Action Types */
-export const HANDLE_FETCH_STREAMS = 'HANDLE_FETCH_STREAMS';
 export const HANDLE_FETCH_STREAM = 'HANDLE_FETCH_STREAM';

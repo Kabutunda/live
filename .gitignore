@@ -8,5 +8,5 @@
 **.env
 
 # Frontend - Client Server
-# /frontend/client-server/build
-# /frontend/client-server/auth-config
+**/frontend/client-server/build*
+**/frontend/client-server/auth-config*

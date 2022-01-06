@@ -1,7 +1,7 @@
 import React, { createRef, Component } from 'react';
 import flv from 'flv.js';
-import { connect } from 'react-redux';
-import { handleFetchStream } from '../../../../store/actions';
+// import { connect } from 'react-redux';
+// import { handleFetchStream } from '../../../../store/actions';
 
 const StreamShow = class extends Component {
   constructor(props) {
@@ -10,8 +10,8 @@ const StreamShow = class extends Component {
   }
 
   componentDidMount() {
-    const { handleFetchStream} = this.props;
-    handleFetchStream(1);
+    // const { handleFetchStream} = this.props;
+    // handleFetchStream(1);
     this.buildPlayer();
   }
 
@@ -24,7 +24,7 @@ const StreamShow = class extends Component {
     if (this.player || !stream) return;
     this.player = flv.createPlayer({
       type: 'flv',
-      url: `http://wgtvlive.herokuapp.com/live/1.flv`,
+      url: `http://localhost:8000/live/1.flv`,
     });
     this.player.attachMediaElement(this.videoRef.current);
     this.player.load();
@@ -32,7 +32,7 @@ const StreamShow = class extends Component {
   
   render() {
     const { stream } = this.props;
-    if (!stream) return null;
+    // if (!stream) return null;
     return (
       <div>
         <div>
@@ -47,13 +47,10 @@ const StreamShow = class extends Component {
   }
 };
 
-StreamShow.defaultProps = {
-  stream: null,
-  match: null,
-  handleFetchStream: () => {},
-};
+// StreamShow.defaultProps = {
+//   stream: stream,
+//   match: match,
+//   // handleFetchStream: () => {},
+// };
 
-export default connect(
-  ({ streams  }) => ({ stream: streams }),
-  { handleFetchStream },
-)(StreamShow);
+export default StreamShow;
