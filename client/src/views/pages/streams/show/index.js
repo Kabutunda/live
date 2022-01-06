@@ -1,7 +1,7 @@
 import React, { createRef, Component } from 'react';
 import flv from 'flv.js';
-// import { connect } from 'react-redux';
-// import { handleFetchStream } from '../../../../store/actions';
+import { connect } from 'react-redux';
+import { handleFetchStream } from '../../../../store/actions';
 
 const StreamShow = class extends Component {
   constructor(props) {
@@ -10,8 +10,8 @@ const StreamShow = class extends Component {
   }
 
   componentDidMount() {
-    // const { handleFetchStream} = this.props;
-    // handleFetchStream(1);
+    const { handleFetchStream} = this.props;
+    handleFetchStream(1);
     this.buildPlayer();
   }
 
@@ -32,7 +32,7 @@ const StreamShow = class extends Component {
   
   render() {
     const { stream } = this.props;
-    // if (!stream) return null;
+    if (!stream) return null;
     return (
       <div>
         <div>
@@ -47,10 +47,13 @@ const StreamShow = class extends Component {
   }
 };
 
-// StreamShow.defaultProps = {
-//   stream: stream,
-//   match: match,
-//   // handleFetchStream: () => {},
-// };
+StreamShow.defaultProps = {
+  stream: null,
+  match: null,
+  handleFetchStream: () => {},
+};
 
-export default StreamShow;
+export default connect(
+  ({ streams  }) => ({ stream: streams }),
+  { handleFetchStream },
+)(StreamShow);
