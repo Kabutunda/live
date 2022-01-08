@@ -1,13 +1,32 @@
 import React, { Fragment } from 'react';
-import { Router } from 'react-router-dom';
-import Routes from './routes';
+import { Router, Route, Switch } from 'react-router-dom';
 import history from '../history';
+import StreamShow from './';
 
-const App = () =>
-  <Router history={ history }>
-    <Fragment>
-      <Routes />
-    </Fragment>
-  </Router>;
+function App() {
+
+    return (
+
+        <Fragment>
+
+            <Router history={ history }>
+
+                <Switch>
+
+                    <Route exact path="/"
+                        render={(props) => {
+                        return (<StreamShow {...props}/>);
+                    }}/>
+
+                </Switch>
+
+            </Router>
+
+        </Fragment>
+
+    );
+
+}
 
 export default App;
+

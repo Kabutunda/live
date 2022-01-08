@@ -1,7 +1,6 @@
 import React, { createRef, Component } from 'react';
 import flv from 'flv.js';
-import { connect } from 'react-redux';
-import { handleFetchStream } from '../../../../store/actions';
+import axios from 'axios';
 
 const StreamShow = class extends Component {
   constructor(props) {
@@ -10,8 +9,7 @@ const StreamShow = class extends Component {
   }
 
   componentDidMount() {
-    const { handleFetchStream} = this.props;
-    handleFetchStream(1);
+    const stream = axios.create({ stream });
     this.buildPlayer();
   }
 
@@ -48,12 +46,7 @@ const StreamShow = class extends Component {
 };
 
 StreamShow.defaultProps = {
-  stream: null,
-  match: null,
-  handleFetchStream: () => {},
+  stream: () => {},
 };
 
-export default connect(
-  ({ streams  }) => ({ stream: streams }),
-  { handleFetchStream },
-)(StreamShow);
+export default StreamShow;
