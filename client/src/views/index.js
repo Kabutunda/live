@@ -1,6 +1,5 @@
 import React, { createRef, Component } from 'react';
 import flv from 'flv.js';
-import axios from 'axios';
 
 const StreamShow = class extends Component {
   constructor(props) {
@@ -9,11 +8,6 @@ const StreamShow = class extends Component {
   }
 
   componentDidMount() {
-    const stream = axios.create({ stream });
-    this.buildPlayer();
-  }
-
-  componentDidUpdate() {
     this.buildPlayer();
   }
 
